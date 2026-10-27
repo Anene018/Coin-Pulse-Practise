@@ -9,9 +9,9 @@ const Header = () => {
   return (
     <header>
       <div className='main-container inner'>
-        <a href='/'>
+        <Link href='/'>
           <Image src='/logo.svg' alt='CoinPulse logo' width={132} height={45} />
-        </a>
+        </Link>
 
         <nav>
           <Link
