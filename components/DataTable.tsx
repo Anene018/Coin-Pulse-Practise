@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/table'
 import { cn } from '@/lib/utils'
 
-const DataTable = <T>({
+const DataTable = <T,>({
   columns,
   data,
   rowKey,
