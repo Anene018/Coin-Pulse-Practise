@@ -5,13 +5,20 @@ import { TrendingDown, TrendingUp } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import Image from 'next/image'
+import { TrendingCoinsSkeleton } from '../skeletons'
 
 const TrendingCoins = async () => {
-  const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
-    '/search/trending',
-    undefined,
-    300
-  )
+  let trendingCoins
+  try {
+    trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
+      '/search/trending',
+      undefined,
+      300
+    )
+  } catch (error) {
+    console.error('Error fetching trending coins', error)
+    return <TrendingCoinsSkeleton />
+  }
 
   const columns: DataTableColumn<TrendingCoin>[] = [
     {

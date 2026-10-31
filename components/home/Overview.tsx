@@ -1,11 +1,18 @@
 import { fetcher } from '@/lib/CoinGecko.actions'
 import { formatCurrency } from '@/lib/utils'
 import Image from 'next/image'
+import { OverviewSkeleton } from '../skeletons'
 
 const Overview = async () => {
-  const coin = await fetcher<CoinDetailsData>('/coins/bitcoin', {
-    dex_pair_format: 'symbol'
-  })
+  let coin
+  try {
+    coin = await fetcher<CoinDetailsData>('/coins/bitcoin', {
+      dex_pair_format: 'symbol'
+    })
+  } catch (error) {
+    console.error('Error fetching coin overview', error)
+    return <OverviewSkeleton />
+  }
 
   return (
     <div id='coin-overview'>
