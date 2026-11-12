@@ -98,7 +98,7 @@ const CandleStickChart = ({ children, data, coinId, height = 360, initialPeriod 
 
           {PERIOD_BUTTONS.map(({label, value})=>{
             return (
-              <button className={period === value ? 'config-button-active' : 'config-button' } key={value} onClick={()=>handlePeriodChange(value)} disabled={loading}>{label}</button>
+              <button className={period === value ? 'config-button-active' : 'config-button' } key={value} onClick={()=>handlePeriodChange(value)} disabled={isPending}>{label}</button>
             )
           })}
        
