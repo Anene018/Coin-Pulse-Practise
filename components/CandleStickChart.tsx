@@ -55,7 +55,11 @@ const CandleStickChart = ({ children, data, coinId, height = 360, initialPeriod 
     })
 
     const series = chart.addSeries(CandlestickSeries, getCandlestickConfig())
-    series.setData(convertOHLCData(ohlcData))
+      const conervtedToSeconds = ohlcData.map((item) => 
+      [Math.floor(item[0] / 1000), item[1], item[2], item[3], item[4]] as OHLCData
+      
+    )
+    series.setData(convertOHLCData(conervtedToSeconds))
     chart.timeScale().fitContent()
     candleSeriesRef.current = series
     chartRef.current = chart
@@ -73,7 +77,7 @@ const CandleStickChart = ({ children, data, coinId, height = 360, initialPeriod 
       chartRef.current = null
       candleSeriesRef.current = null
     }
-  }, [height])
+  }, [height , period])
   
   useEffect(() => {
   if (!chartContainerRef.current) return 
