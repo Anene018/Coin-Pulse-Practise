@@ -12,7 +12,7 @@ import {
   ChartOptions,
   ColorType,
   DeepPartial,
-} from 'lightweight-charts';
+} from 'lightweight-charts'
 
 export const navItems = [
   {
@@ -27,7 +27,7 @@ export const navItems = [
     label: 'All Coins',
     href: '/coins',
   },
-];
+]
 
 const CHART_COLORS = {
   background: '#0b1116',
@@ -38,7 +38,7 @@ const CHART_COLORS = {
   crosshairHorizontal: '#ffffff20',
   candleUp: '#158A6E',
   candleDown: '#EB1C36',
-} as const;
+} as const
 
 export const getCandlestickConfig = (): CandlestickSeriesPartialOptions => ({
   upColor: CHART_COLORS.candleUp,
@@ -47,7 +47,7 @@ export const getCandlestickConfig = (): CandlestickSeriesPartialOptions => ({
   wickDownColor: CHART_COLORS.candleDown,
   borderVisible: true,
   wickVisible: true,
-});
+})
 
 export const getChartConfig = (
   height: number,
@@ -98,7 +98,7 @@ export const getChartConfig = (
     priceFormatter: (price: number) =>
       '$' + price.toLocaleString(undefined, { maximumFractionDigits: 2 }),
   },
-});
+})
 
 export const PERIOD_CONFIG: Record<
   Period,
@@ -111,7 +111,7 @@ export const PERIOD_CONFIG: Record<
   '6months': { days: 180, interval: 'daily' },
   yearly: { days: 365 },
   max: { days: 'max' },
-};
+}
 
 export const PERIOD_BUTTONS: { value: Period; label: string }[] = [
   { value: 'daily', label: '1D' },
@@ -121,9 +121,9 @@ export const PERIOD_BUTTONS: { value: Period; label: string }[] = [
   { value: '6months', label: '6M' },
   { value: 'yearly', label: '1Y' },
   { value: 'max', label: 'Max' },
-];
+]
 
 export const LIVE_INTERVAL_BUTTONS: { value: '1s' | '1m'; label: string }[] = [
   { value: '1s', label: '1s' },
   { value: '1m', label: '1m' },
-];
+]

@@ -1,7 +1,9 @@
+import Category from '@/components/home/Category'
 import Overview from '@/components/home/Overview'
 import TrendingCoins from '@/components/home/TrendingCoins'
 import OverviewSkeleton from '@/components/skeletons/OverviewSkeleton'
 import TrendingCoinsSkeleton from '@/components/skeletons/TrendingCoinsSkeleton'
+import CategorySkeleton from '@/components/skeletons/CategorySkeleton'
 import { Suspense } from 'react'
 
 const page = async () => {
@@ -17,8 +19,10 @@ const page = async () => {
         </Suspense>
       </section>
 
-      <section className='w-full mt-7 space-y-4'>
-        <p>Catergories</p>
+      <section className='mt-7 w-full space-y-4'>
+        <Suspense fallback={<CategorySkeleton />}>
+          <Category />
+        </Suspense>
       </section>
     </main>
   )

@@ -6,13 +6,13 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'assets.coingecko.com'
+        hostname: 'assets.coingecko.com',
       },
       {
         protocol: 'https',
-        hostname: 'coin-images.coingecko.com'
-      }
-    ]
+        hostname: 'coin-images.coingecko.com',
+      },
+    ],
   },
   cacheComponents: true,
   partialPrefetching: true,
@@ -20,10 +20,10 @@ const nextConfig: NextConfig = {
     rules: {
       '*.css': {
         loaders: ['@tailwindcss/turbopack'],
-        as: '*.css'
-      }
-    }
-  }
+        as: '*.css',
+      },
+    },
+  },
 }
 
 export default nextConfig

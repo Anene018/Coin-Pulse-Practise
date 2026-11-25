@@ -8,20 +8,20 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin']
+  subsets: ['latin'],
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
-  subsets: ['latin']
+  subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
   title: 'Coin Pulse',
-  description: 'Coin Pulse  to learn Next Js'
+  description: 'Coin Pulse  to learn Next Js',
 }
 
-export default function RootLayout ({ children }: LayoutProps<'/'>) {
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang='en'
@@ -32,7 +32,7 @@ export default function RootLayout ({ children }: LayoutProps<'/'>) {
         geistMono.variable,
         'font-sans',
         inter.variable,
-        'dark'
+        'dark',
       )}
     >
       <body>
