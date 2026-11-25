@@ -4,7 +4,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from '@/components/ui/table'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -15,13 +15,13 @@ const TrendingCoinsSkeleton = () => {
       <Table className='custom-scrollbar trending-coins-table'>
         <TableHeader>
           <TableRow className='hover:bg-transparent!'>
-            <TableHead className='bg-dark-400 text-purple-100 py-4 first:pl-5 last:pr-5'>
+            <TableHead className='bg-dark-400 py-4 text-purple-100 first:pl-5 last:pr-5'>
               Name
             </TableHead>
-            <TableHead className='bg-dark-400 text-purple-100 py-4 first:pl-5 last:pr-5'>
+            <TableHead className='bg-dark-400 py-4 text-purple-100 first:pl-5 last:pr-5'>
               24 hour change
             </TableHead>
-            <TableHead className='bg-dark-400 text-purple-100 py-4 first:pl-5 last:pr-5'>
+            <TableHead className='bg-dark-400 py-4 text-purple-100 first:pl-5 last:pr-5'>
               Price
             </TableHead>
           </TableRow>
@@ -30,21 +30,21 @@ const TrendingCoinsSkeleton = () => {
           {Array.from({ length: 6 }).map((_, index) => (
             <TableRow
               key={index}
-              className='overflow-hidden rounded-lg border-b border-purple-100/5 hover:bg-dark-400/30! relative'
+              className='hover:bg-dark-400/30! relative overflow-hidden rounded-lg border-b border-purple-100/5'
             >
-              <TableCell className='py-4 first:pl-5 last:pr-5 name-cell'>
+              <TableCell className='name-cell py-4 first:pl-5 last:pr-5'>
                 <div className='name-link'>
                   <Skeleton className='name-image' />
                   <Skeleton className='name-line' />
                 </div>
               </TableCell>
-              <TableCell className='py-4 first:pl-5 last:pr-5 change-cell'>
+              <TableCell className='change-cell py-4 first:pl-5 last:pr-5'>
                 <div className='price-change'>
                   <Skeleton className='change-icon' />
                   <Skeleton className='change-line' />
                 </div>
               </TableCell>
-              <TableCell className='py-4 first:pl-5 last:pr-5 price-cell'>
+              <TableCell className='price-cell py-4 first:pl-5 last:pr-5'>
                 <Skeleton className='price-line' />
               </TableCell>
             </TableRow>

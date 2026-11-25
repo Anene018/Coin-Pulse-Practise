@@ -1,10 +1,16 @@
 type OHLCData = [number, number, number, number, number]
 
-interface NextPageProps {
-  params: Promise<{ [key: string]: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}
+// interface NextPageProps {
+//   params: Promise<{ [key: string]: string }>
+//   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+// }
 
+interface NextPageProps {
+  params: Promise<{ [key: string]: string | string[] | undefined }>
+  searchParams: Promise<{
+    [key: string]: string | string[] | undefined
+  }>
+}
 interface CandlestickChartProps {
   data?: OHLCData[]
   liveOhlcv?: OHLCData | null
@@ -36,14 +42,7 @@ interface Ticker {
   trade_url: string
 }
 
-type Period =
-  | 'daily'
-  | 'weekly'
-  | 'monthly'
-  | '3months'
-  | '6months'
-  | 'yearly'
-  | 'max'
+type Period = 'daily' | 'weekly' | 'monthly' | '3months' | '6months' | 'yearly' | 'max'
 
 interface CoinMarketData {
   id: string
@@ -252,6 +251,7 @@ interface Category {
   market_cap_change_24h: number
   market_cap: number
   volume_24h: number
+  top_3_coins_id: string[]
 }
 
 interface UseCoinGeckoWebSocketProps {

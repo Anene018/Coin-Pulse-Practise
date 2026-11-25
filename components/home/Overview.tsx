@@ -5,25 +5,22 @@ import { OverviewSkeleton } from '../skeletons'
 import CandleStickChart from '../CandleStickChart'
 
 const Overview = async () => {
- 
-    try {
-      const [coin, coinOHLCData] = await Promise.all([
-       fetcher<CoinDetailsData>('/coins/bitcoin', {
-      dex_pair_format: 'symbol'
-    }),
-     fetcher<OHLCData[]>('/coins/bitcoin/ohlc', {
-          vs_currency: 'usd',
-          days: 1,
-          // interval: 'hourly',
-          precision:'full'
-      })
-    ])   
-      
-        
+  try {
+    const [coin, coinOHLCData] = await Promise.all([
+      fetcher<CoinDetailsData>('/coins/bitcoin', {
+        dex_pair_format: 'symbol',
+      }),
+      fetcher<OHLCData[]>('/coins/bitcoin/ohlc', {
+        vs_currency: 'usd',
+        days: 1,
+        // interval: 'hourly',
+        precision: 'full',
+      }),
+    ])
+
     return (
       <div id='coin-overview'>
         <CandleStickChart data={coinOHLCData} coinId='bitcoin'>
-
           <div className='header'>
             <Image
               src={coin.image.large}
@@ -39,15 +36,12 @@ const Overview = async () => {
             </div>
           </div>
         </CandleStickChart>
-      
-    </div>
-  )
+      </div>
+    )
   } catch (error) {
     console.error('Error fetching coin overview', error)
     return <OverviewSkeleton />
   }
-
-  
 }
 
 export default Overview

@@ -10,11 +10,7 @@ import { TrendingCoinsSkeleton } from '../skeletons'
 const TrendingCoins = async () => {
   let trendingCoins
   try {
-    trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
-      '/search/trending',
-      undefined,
-      300
-    )
+    trendingCoins = await fetcher<{ coins: TrendingCoin[] }>('/search/trending', undefined, 300)
   } catch (error) {
     console.error('Error fetching trending coins', error)
     return <TrendingCoinsSkeleton />
@@ -32,7 +28,7 @@ const TrendingCoins = async () => {
             <p>{item.name}</p>
           </Link>
         )
-      }
+      },
     },
     {
       header: '24 hour change',
@@ -42,12 +38,7 @@ const TrendingCoins = async () => {
         const isTrendingUp = item.data.price_change_percentage_24h.usd > 0
 
         return (
-          <div
-            className={cn(
-              'price-change',
-              isTrendingUp ? 'text-green-500' : 'text-red-500'
-            )}
-          >
+          <div className={cn('price-change', isTrendingUp ? 'text-green-500' : 'text-red-500')}>
             <p>
               {isTrendingUp ? (
                 <TrendingUp width={16} height={16} />
@@ -55,19 +46,19 @@ const TrendingCoins = async () => {
                 <TrendingDown width={16} height={16} />
               )}
             </p>
-            <p>
+            <p className='flex items-center'>
               {isTrendingUp ? '+' : ''}
               {item.data.price_change_percentage_24h.usd.toFixed(2)}%
             </p>
           </div>
         )
-      }
+      },
     },
     {
       header: 'Price',
       cellClassName: 'price-cell',
-      cell: coin => formatCurrency(coin.item.data.price)
-    }
+      cell: coin => formatCurrency(coin.item.data.price),
+    },
   ]
 
   return (
